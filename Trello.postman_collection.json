@@ -1,0 +1,855 @@
+{
+	"info": {
+		"_postman_id": "",
+		"name": "Trello",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": ""
+	},
+	"item": [
+		{
+			"name": "Board",
+			"item": [
+				{
+					"name": "Create a board",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"board_id\", pm.response.json().id);\r",
+									"\r",
+									"pm.test(\"verificar status code\", function() {\r",
+									"    //AAA\r",
+									"    //Arrange - Given \r",
+									"\r",
+									"    //Act - When\r",
+									"    //Assert - Then\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/boards/?name=AT-08-class-{{$guid}}&key={{api-key}}&token={{api-token}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"boards",
+								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "AT-08-class-{{$guid}}"
+								},
+								{
+									"key": "key",
+									"value": "{{api-key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{api-token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get board list",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"verificar status code\", function() {\r",
+									"    //AAA\r",
+									"    //Arrange - Given \r",
+									"\r",
+									"    //Act - When\r",
+									"    //Assert - Then\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.trello.com/1/boards/{{board_id}}/lists?key={{api-key}}&token={{api-token}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"boards",
+								"{{board_id}}",
+								"lists"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{api-key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{api-token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a board",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"verificar status code\", function() {\r",
+									"    //AAA\r",
+									"    //Arrange - Given \r",
+									"\r",
+									"    //Act - When\r",
+									"    //Assert - Then\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/boards/{{board_id}}?key={{api-key}}&token={{api-token}}&name=AT-08-class-1-updated",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"boards",
+								"{{board_id}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{api-key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{api-token}}"
+								},
+								{
+									"key": "name",
+									"value": "AT-08-class-1-updated"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a board",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"verificar status code\", function() {\r",
+									"    //AAA\r",
+									"    //Arrange - Given \r",
+									"\r",
+									"    //Act - When\r",
+									"    //Assert - Then\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/boards/{{board_id}}?key={{api-key}}&token={{api-token}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"boards",
+								"{{board_id}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{api-key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{api-token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Lists",
+			"item": [
+				{
+					"name": "Create a list",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"list_id\", pm.response.json().id);\r",
+									"\r",
+									"pm.test(\"verificar status code\", function() {\r",
+									"    //AAA\r",
+									"    //Arrange - Given \r",
+									"    //Act - When\r",
+									"    //Assert - Then\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.trello.com/1/boards/{{board_id}}/lists?name=Backlog&key={{api-key}}&token={{api-token}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"boards",
+								"{{board_id}}",
+								"lists"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Backlog"
+								},
+								{
+									"key": "key",
+									"value": "{{api-key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{api-token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a list",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"verificar status code\", function() {\r",
+									"    //AAA\r",
+									"    //Arrange - Given \r",
+									"\r",
+									"    //Act - When\r",
+									"    //Assert - Then\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/lists/{{list_id}}?key={{api-key}}&token={{api-token}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"lists",
+								"{{list_id}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{api-key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{api-token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a list",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"verificar status code\", function() {\r",
+									"    //AAA\r",
+									"    //Arrange - Given \r",
+									"\r",
+									"    //Act - When\r",
+									"    //Assert - Then\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/lists/{{list_id}}?key={{api-key}}&token={{api-token}}&name=Backlog-Updated",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"lists",
+								"{{list_id}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{api-key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{api-token}}"
+								},
+								{
+									"key": "name",
+									"value": "Backlog-Updated"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cards",
+			"item": [
+				{
+					"name": "Create a card",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"card_name\", \"testing card 1112\")\r",
+									"// pm.environment.set(\"variable_key\", \"variable_value\");"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"card_id\", pm.response.json().id);\r",
+									"\r",
+									"pm.test(\"verificar status code\", function() {\r",
+									"    //AAA\r",
+									"    //Arrange - Given \r",
+									"\r",
+									"    //Act - When\r",
+									"    //Assert - Then\r",
+									"    pm.response.to.have.status(200);\r",
+									"})\r",
+									"\r",
+									"pm.test(\"verificar card name\", function() {\r",
+									"    //AAA\r",
+									"    //Arrange - Given \r",
+									"    var jsonData = pm.response.json();\r",
+									"    //Act - When\r",
+									"    //Assert - Then\r",
+									"    pm.expect(jsonData.name).to.eql(pm.collectionVariables.get(\"card_name\"));\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer <token>",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.trello.com/1/cards?idList={{list_id}}&key={{api-key}}&token={{api-token}}&name={{card_name}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"cards"
+							],
+							"query": [
+								{
+									"key": "idList",
+									"value": "{{list_id}}"
+								},
+								{
+									"key": "key",
+									"value": "{{api-key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{api-token}}"
+								},
+								{
+									"key": "name",
+									"value": "{{card_name}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a card",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"verificar status code\", function() {\r",
+									"    //AAA\r",
+									"    //Arrange - Given \r",
+									"\r",
+									"    //Act - When\r",
+									"    //Assert - Then\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://api.trello.com/1/cards/{{card_id}}?key={{api-key}}&token={{api-token}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"cards",
+								"{{card_id}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{api-key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{api-token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update card",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"verificar status code\", function() {\r",
+									"    //AAA\r",
+									"    //Arrange - Given \r",
+									"\r",
+									"    //Act - When\r",
+									"    //Assert - Then\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Cookie",
+								"value": "dsc=a8c9523206015e62c0100273518c3e26377fe8fbb3c0e03b0e81de0411ce6855"
+							}
+						],
+						"url": {
+							"raw": "https://api.trello.com/1/cards/{{card_id}}?key={{api-key}}&token={{api-token}}&name={{card_name}}-Updated",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"cards",
+								"{{card_id}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{api-key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{api-token}}"
+								},
+								{
+									"key": "name",
+									"value": "{{card_name}}-Updated"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a card",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"verificar status code\", function() {\r",
+									"    //AAA\r",
+									"    //Arrange - Given \r",
+									"    //Act - When\r",
+									"    //Assert - Then\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/cards/{{card_id}}?key={{api-key}}&token={{api-token}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"cards",
+								"{{card_id}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{api-key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{api-token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Checklist",
+			"item": [
+				{
+					"name": "Create a checklist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"checklist_id\", pm.response.json().id);\r",
+									"\r",
+									"pm.test(\"verificar status code\", function() {\r",
+									"\r",
+									"    pm.response.to.have.status(200);\r",
+									"})\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/checklists?idCard={{card_id}}&key={{api-key}}&token={{api-token}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"checklists"
+							],
+							"query": [
+								{
+									"key": "idCard",
+									"value": "{{card_id}}"
+								},
+								{
+									"key": "key",
+									"value": "{{api-key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{api-token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a checklist",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/checklists/{{checklist_id}}?key={{api-key}}&token={{api-token}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"checklists",
+								"{{checklist_id}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{api-key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{api-token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a checklist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"verificar status code\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"})\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/checklists/{{checklist_id}}?key={{api-key}}&token={{api-token}}&name=checklist_updated",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"checklists",
+								"{{checklist_id}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{api-key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{api-token}}"
+								},
+								{
+									"key": "name",
+									"value": "checklist_updated"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a checklist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"verificar status code\", function() {\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/checklists/{{checklist_id}}?key={{api-key}}&token={{api-token}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"checklists",
+								"{{checklist_id}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{api-key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{api-token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "card_name",
+			"value": ""
+		}
+	]
+}
